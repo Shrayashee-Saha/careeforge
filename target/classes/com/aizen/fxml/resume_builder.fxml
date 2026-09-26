@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aizen.controller.ResumeBuilderController" styleClass="view-container">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="builder-toolbar">
+            <padding><Insets bottom="12" left="20" right="20" top="16"/></padding>
+            <TextField fx:id="resumeTitleField" promptText="Untitled Resume" styleClass="resume-title-field"/>
+            <ComboBox fx:id="templateComboBox" promptText="Template"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button onAction="#handleAtsCheck" styleClass="secondary-button" text="🎯 ATS Check"/>
+            <Button onAction="#handleImportJson" styleClass="secondary-button" text="⬆ Import JSON"/>
+            <Button onAction="#handleExportJson" styleClass="secondary-button" text="⬇ Export JSON"/>
+            <Button onAction="#handleExportPdf" styleClass="secondary-button" text="📄 Export PDF"/>
+            <Button onAction="#handleSave" styleClass="primary-button" text="💾 Save"/>
+            <ProgressIndicator fx:id="progressIndicator" managed="false" prefHeight="20" prefWidth="20" visible="false"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.55">
+            <VBox styleClass="builder-form-pane">
+                <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+                    <Tab text="Personal">
+                        <ScrollPane fitToWidth="true">
+                            <VBox spacing="10" styleClass="tab-content">
+                                <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                                <Label styleClass="field-label" text="Full Name"/>
+                                <TextField fx:id="fullNameField"/>
+                                <Label styleClass="field-label" text="Email"/>
+                                <TextField fx:id="emailField"/>
+                                <Label styleClass="field-label" text="Phone"/>
+                                <TextField fx:id="phoneField"/>
+                                <Label styleClass="field-label" text="Location"/>
+                                <TextField fx:id="locationField"/>
+                                <Label styleClass="field-label" text="LinkedIn / Portfolio URL"/>
+                                <TextField fx:id="linkedinField"/>
+                                <HBox alignment="CENTER_LEFT" spacing="8">
+                                    <Label styleClass="field-label" text="Professional Summary"/>
+                                    <Region HBox.hgrow="ALWAYS"/>
+                                    <Button onAction="#handleAiSummary" styleClass="ai-button" text="✨ AI Assist"/>
+                                </HBox>
+                                <TextArea fx:id="summaryArea" prefRowCount="6" wrapText="true"/>
+                            </VBox>
+                        </ScrollPane>
+                    </Tab>
+
+                    <Tab text="Experience">
+                        <VBox spacing="10" styleClass="tab-content">
+                            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                            <HBox spacing="8">
+                                <Button onAction="#handleAddExperience" styleClass="secondary-button" text="+ Add"/>
+                                <Button onAction="#handleEditExperience" styleClass="secondary-button" text="Edit"/>
+                                <Button onAction="#handleRemoveExperience" styleClass="secondary-button" text="Remove"/>
+                            </HBox>
+                            <TableView fx:id="experienceTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="expTitleCol" prefWidth="150" text="Title">
+                                        <cellValueFactory><PropertyValueFactory property="title"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="expCompanyCol" prefWidth="150" text="Company">
+                                        <cellValueFactory><PropertyValueFactory property="company"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="expDatesCol" prefWidth="120" text="Start Date">
+                                        <cellValueFactory><PropertyValueFactory property="startDate"/></cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <Tab text="Education">
+                        <VBox spacing="10" styleClass="tab-content">
+                            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                            <HBox spacing="8">
+                                <Button onAction="#handleAddEducation" styleClass="secondary-button" text="+ Add"/>
+                                <Button onAction="#handleEditEducation" styleClass="secondary-button" text="Edit"/>
+                                <Button onAction="#handleRemoveEducation" styleClass="secondary-button" text="Remove"/>
+                            </HBox>
+                            <TableView fx:id="educationTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="eduDegreeCol" prefWidth="150" text="Degree">
+                                        <cellValueFactory><PropertyValueFactory property="degree"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="eduInstitutionCol" prefWidth="180" text="Institution">
+                                        <cellValueFactory><PropertyValueFactory property="institution"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="eduGpaCol" prefWidth="80" text="GPA">
+                                        <cellValueFactory><PropertyValueFactory property="gpa"/></cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <Tab text="Projects">
+                        <VBox spacing="10" styleClass="tab-content">
+                            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                            <HBox spacing="8">
+                                <Button onAction="#handleAddProject" styleClass="secondary-button" text="+ Add"/>
+                                <Button onAction="#handleEditProject" styleClass="secondary-button" text="Edit"/>
+                                <Button onAction="#handleRemoveProject" styleClass="secondary-button" text="Remove"/>
+                            </HBox>
+                            <TableView fx:id="projectTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="projNameCol" prefWidth="180" text="Name">
+                                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="projTechCol" prefWidth="220" text="Tech Stack">
+                                        <cellValueFactory><PropertyValueFactory property="techStackAsCsv"/></cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <Tab text="Certifications">
+                        <VBox spacing="10" styleClass="tab-content">
+                            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                            <HBox spacing="8">
+                                <Button onAction="#handleAddCertification" styleClass="secondary-button" text="+ Add"/>
+                                <Button onAction="#handleEditCertification" styleClass="secondary-button" text="Edit"/>
+                                <Button onAction="#handleRemoveCertification" styleClass="secondary-button" text="Remove"/>
+                            </HBox>
+                            <TableView fx:id="certificationTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="certNameCol" prefWidth="200" text="Name">
+                                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="certIssuerCol" prefWidth="180" text="Issuer">
+                                        <cellValueFactory><PropertyValueFactory property="issuer"/></cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+
+                    <Tab text="Skills">
+                        <VBox spacing="10" styleClass="tab-content">
+                            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                            <HBox spacing="8">
+                                <Button onAction="#handleAddSkill" styleClass="secondary-button" text="+ Add"/>
+                                <Button onAction="#handleRemoveSkill" styleClass="secondary-button" text="Remove"/>
+                            </HBox>
+                            <TableView fx:id="skillTable" VBox.vgrow="ALWAYS">
+                                <columns>
+                                    <TableColumn fx:id="skillNameCol" prefWidth="200" text="Skill">
+                                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                                    </TableColumn>
+                                    <TableColumn fx:id="skillProficiencyCol" prefWidth="150" text="Proficiency">
+                                        <cellValueFactory><PropertyValueFactory property="proficiency"/></cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                            </TableView>
+                        </VBox>
+                    </Tab>
+                </TabPane>
+            </VBox>
+
+            <VBox spacing="8" styleClass="preview-pane">
+                <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+                <HBox alignment="CENTER_LEFT">
+                    <Label styleClass="section-heading" text="Live Preview"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button onAction="#refreshPreview" styleClass="secondary-button" text="🔄 Refresh"/>
+                </HBox>
+                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                    <TextArea fx:id="previewArea" editable="false" prefRowCount="30" styleClass="preview-text" wrapText="true"/>
+                </ScrollPane>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

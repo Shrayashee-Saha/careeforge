@@ -1,0 +1,219 @@
+/*
+ * AiZen — Dark theme. Same structure as style.css with the palette
+ * swapped to the "immersive deep slate" scheme.
+ */
+
+.root {
+    -aizen-primary: #818CF8;
+    -aizen-primary-hover: #6366F1;
+    -aizen-bg: #0B0F19;
+    -aizen-surface: #1E293B;
+    -aizen-text: #F1F5F9;
+    -aizen-text-muted: #94A3B8;
+    -aizen-border: #334155;
+    -aizen-success: #10B981;
+    -aizen-danger: #F87171;
+    -aizen-warn: #FBBF24;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: -aizen-bg;
+}
+
+.auth-root {
+    -fx-background-color: linear-gradient(to bottom right, #111827, -aizen-bg);
+}
+
+.auth-scroll { -fx-background-color: transparent; -fx-background: transparent; }
+
+.auth-card {
+    -fx-background-color: -aizen-surface;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 24, 0, 0, 8);
+    -fx-border-radius: 16;
+    -fx-border-color: -aizen-border;
+    -fx-border-width: 1;
+}
+
+.auth-logo { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: -aizen-primary; }
+.auth-subtitle { -fx-font-size: 13px; -fx-text-fill: -aizen-text-muted; }
+.field-label { -fx-font-size: 12px; -fx-font-weight: 600; -fx-text-fill: -aizen-text-muted; }
+.error-label { -fx-text-fill: -aizen-danger; -fx-font-size: 12px; }
+
+.text-field, .password-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: #0F172A;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -aizen-border;
+    -fx-border-width: 1;
+    -fx-padding: 8;
+    -fx-text-fill: -aizen-text;
+    -fx-prompt-text-fill: -aizen-text-muted;
+}
+
+.text-area .content { -fx-background-color: #0F172A; -fx-background-radius: 8; }
+.text-field:focused, .password-field:focused, .text-area:focused, .combo-box:focused { -fx-border-color: -aizen-primary; }
+
+.primary-button {
+    -fx-background-color: -aizen-primary;
+    -fx-text-fill: #0B0F19;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 18;
+    -fx-cursor: hand;
+}
+.primary-button:hover { -fx-background-color: -aizen-primary-hover; }
+
+.secondary-button {
+    -fx-background-color: -aizen-surface;
+    -fx-text-fill: -aizen-text;
+    -fx-border-color: -aizen-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+    -fx-cursor: hand;
+}
+.secondary-button:hover { -fx-background-color: -aizen-border; }
+
+.danger-button {
+    -fx-background-color: -aizen-danger;
+    -fx-text-fill: #0B0F19;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14;
+    -fx-cursor: hand;
+}
+.danger-button:hover { -fx-background-color: derive(-aizen-danger, -15%); }
+
+.ai-button {
+    -fx-background-color: #312E81;
+    -fx-text-fill: -aizen-primary;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+}
+.ai-button:hover { -fx-background-color: derive(#312E81, 10%); }
+
+.icon-button { -fx-background-color: transparent; -fx-font-size: 16px; -fx-cursor: hand; -fx-padding: 4 8; }
+
+.app-root { -fx-background-color: -aizen-bg; }
+
+.sidebar {
+    -fx-background-color: -aizen-surface;
+    -fx-border-color: transparent -aizen-border transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 220;
+    -fx-pref-width: 220;
+}
+
+.sidebar-logo { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -aizen-primary; }
+.sidebar-tagline { -fx-font-size: 11px; -fx-text-fill: -aizen-text-muted; }
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -aizen-text;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+    -fx-cursor: hand;
+}
+.nav-button:hover { -fx-background-color: #312E81; -fx-text-fill: -aizen-primary; }
+
+.nav-button-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: -aizen-danger;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-padding: 10 12;
+    -fx-cursor: hand;
+}
+.nav-button-logout:hover { -fx-background-color: #3F1D1D; }
+
+.top-bar {
+    -fx-background-color: -aizen-surface;
+    -fx-border-color: transparent transparent -aizen-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.top-bar-welcome { -fx-font-size: 15px; -fx-font-weight: 600; -fx-text-fill: -aizen-text; }
+.top-bar-status { -fx-font-size: 11px; -fx-text-fill: -aizen-text-muted; }
+
+.status-dot-ok { -fx-fill: -aizen-success; }
+.status-dot-warn { -fx-fill: -aizen-warn; }
+.status-dot-error { -fx-fill: -aizen-danger; }
+.status-dot-unknown { -fx-fill: -aizen-text-muted; }
+
+.content-area { -fx-background-color: -aizen-bg; }
+.view-container { -fx-background-color: -aizen-bg; }
+.view-scroll { -fx-background-color: transparent; }
+.view-title { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: -aizen-text; }
+.view-subtitle { -fx-font-size: 13px; -fx-text-fill: -aizen-text-muted; }
+.section-heading { -fx-font-size: 15px; -fx-font-weight: 600; -fx-text-fill: -aizen-text; }
+
+.stat-card {
+    -fx-background-color: -aizen-surface;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: -aizen-border;
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-spacing: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+}
+.stat-value { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: -aizen-primary; }
+.stat-caption { -fx-font-size: 12px; -fx-text-fill: -aizen-text-muted; }
+
+.tile-button {
+    -fx-background-color: -aizen-surface;
+    -fx-border-color: -aizen-border;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 18;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -aizen-text;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 3);
+}
+.tile-button:hover { -fx-border-color: -aizen-primary; -fx-text-fill: -aizen-primary; }
+
+.activity-list {
+    -fx-background-color: -aizen-surface;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: -aizen-border;
+}
+
+.builder-toolbar {
+    -fx-background-color: -aizen-surface;
+    -fx-border-color: transparent transparent -aizen-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.resume-title-field { -fx-font-size: 14px; -fx-font-weight: 600; -fx-pref-width: 220; }
+.builder-form-pane { -fx-background-color: -aizen-bg; }
+.tab-content { -fx-background-color: -aizen-bg; }
+
+.preview-pane {
+    -fx-background-color: -aizen-surface;
+    -fx-border-color: -aizen-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.preview-text { -fx-font-family: "Consolas", "Menlo", monospace; -fx-font-size: 12px; -fx-text-fill: -aizen-text; }
+
+.settings-card {
+    -fx-background-color: -aizen-surface;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: -aizen-border;
+    -fx-padding: 16;
+}
+
+.table-view { -fx-background-color: -aizen-surface; -fx-border-color: -aizen-border; }
+.table-view .column-header-background { -fx-background-color: -aizen-bg; }
+.table-row-cell { -fx-background-color: -aizen-surface; -fx-text-fill: -aizen-text; }
+.table-row-cell:selected { -fx-background-color: #312E81; -fx-text-fill: -aizen-primary; }
+
+.label { -fx-text-fill: -aizen-text; }
+
+.scroll-bar:vertical, .scroll-bar:horizontal { -fx-background-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: -aizen-border; -fx-background-radius: 6; }

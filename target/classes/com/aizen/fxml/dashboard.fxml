@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" styleClass="view-scroll" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.aizen.controller.DashboardController">
+    <VBox spacing="20" styleClass="view-container">
+        <padding>
+            <Insets bottom="24" left="24" right="24" top="24"/>
+        </padding>
+
+        <Label styleClass="view-title" text="Command Center"/>
+        <Label styleClass="view-subtitle" text="Your career-building activity at a glance."/>
+
+        <HBox spacing="16">
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label styleClass="stat-value" fx:id="totalResumesLabel" text="0"/>
+                <Label styleClass="stat-caption" text="Saved Resumes"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label styleClass="stat-value" fx:id="totalWordsLabel" text="0"/>
+                <Label styleClass="stat-caption" text="Total Experience Entries"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+                <Label styleClass="stat-value" fx:id="avgAtsLabel" text="—"/>
+                <Label styleClass="stat-caption" text="Latest Resume Skills Count"/>
+            </VBox>
+        </HBox>
+
+        <Label styleClass="section-heading" text="Quick Actions"/>
+        <HBox spacing="16">
+            <Button maxWidth="Infinity" onAction="#handleNewResume" styleClass="tile-button" text="📝  New Resume" HBox.hgrow="ALWAYS"/>
+            <Button maxWidth="Infinity" onAction="#handleNewCoverLetter" styleClass="tile-button" text="✉️  New Cover Letter" HBox.hgrow="ALWAYS"/>
+            <Button maxWidth="Infinity" onAction="#handleViewSaved" styleClass="tile-button" text="🗂  View Saved Resumes" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <Label styleClass="section-heading" text="Recent Activity"/>
+        <ListView fx:id="recentActivityList" prefHeight="240" styleClass="activity-list"/>
+    </VBox>
+</ScrollPane>

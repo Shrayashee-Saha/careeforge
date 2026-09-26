@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aizen.controller.SavedResumesController" styleClass="view-container">
+    <padding><Insets bottom="24" left="24" right="24" top="24"/></padding>
+
+    <Label styleClass="view-title" text="Saved Resumes"/>
+    <Label styleClass="view-subtitle" text="Manage every resume you've built."/>
+
+    <TableView fx:id="resumeTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="titleCol" prefWidth="220" text="Title">
+                <cellValueFactory><PropertyValueFactory property="title"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="templateCol" prefWidth="160" text="Template">
+                <cellValueFactory><PropertyValueFactory property="templateStyle"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="updatedCol" prefWidth="200" text="Last Updated">
+                <cellValueFactory><PropertyValueFactory property="updatedAt"/></cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button onAction="#handleView" styleClass="secondary-button" text="👁 View"/>
+        <Button onAction="#handleEdit" styleClass="secondary-button" text="✏ Edit"/>
+        <Button onAction="#handleDuplicate" styleClass="secondary-button" text="⧉ Duplicate"/>
+        <Button onAction="#handleExportPdf" styleClass="secondary-button" text="📄 Export PDF"/>
+        <Button onAction="#handleDelete" styleClass="danger-button" text="🗑 Delete"/>
+        <ProgressIndicator fx:id="progressIndicator" managed="false" prefHeight="20" prefWidth="20" visible="false"/>
+    </HBox>
+</VBox>
