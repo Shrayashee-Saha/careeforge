@@ -1,0 +1,68 @@
+/* ===================================================================
+   AiZen - dark theme (loaded on top of style.css)
+   Only the colour variables and a few Modena base colours change.
+   =================================================================== */
+.root {
+    -az-bg: #0f172a;
+    -az-surface: #1e293b;
+    -az-surface-alt: #172033;
+    -az-text: #e2e8f0;
+    -az-muted: #94a3b8;
+    -az-border: #334155;
+    -az-accent: #818cf8;
+    -az-accent-hover: #6366f1;
+    -az-accent-soft: #2b3358;
+    -az-danger: #f87171;
+    -az-success: #34d399;
+
+    -fx-base: #1e293b;
+    -fx-background: #0f172a;
+    -fx-control-inner-background: #1e293b;
+    -fx-focus-color: #818cf8;
+    -fx-faint-focus-color: transparent;
+}
+
+.primary-button {
+    -fx-text-fill: #0f172a;
+}
+
+.danger-button {
+    -fx-background-color: #3b1d24;
+}
+
+.danger-button:hover {
+    -fx-background-color: #4c2029;
+}
+
+.danger-button-small:hover {
+    -fx-background-color: #3b1d24;
+}
+
+.sidebar {
+    -fx-background-color: #0b1120;
+}
+
+.nav-button:hover {
+    -fx-background-color: #1e293b;
+}
+
+.nav-active,
+.nav-active:hover {
+    -fx-text-fill: #0f172a;
+}
+
+.welcome-banner {
+    -fx-background-color: linear-gradient(to right, #4338ca, #6d28d9);
+}
+
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #1e1b4b, #312e81);
+}
+
+.card {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 22, 0, 0, 6);
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #e2e8f0;
+}

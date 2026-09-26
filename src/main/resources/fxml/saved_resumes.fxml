@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.SavedResumeController">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+            <padding>
+                <Insets top="14" right="20" bottom="14" left="20"/>
+            </padding>
+            <Label text="Saved Resumes" styleClass="page-title"/>
+            <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="View" onAction="#onView" styleClass="secondary-button"/>
+            <Button text="Edit" onAction="#onEdit" styleClass="secondary-button"/>
+            <Button text="Export PDF" onAction="#onExportPdf" styleClass="secondary-button"/>
+            <Button text="Delete" onAction="#onDelete" styleClass="danger-button"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="table" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="16" right="20" bottom="10" left="20"/>
+            </BorderPane.margin>
+            <columns>
+                <TableColumn fx:id="colTitle" text="Title" prefWidth="240"/>
+                <TableColumn fx:id="colName" text="Full name" prefWidth="180"/>
+                <TableColumn fx:id="colJob" text="Job title" prefWidth="180"/>
+                <TableColumn fx:id="colTemplate" text="Template" prefWidth="100"/>
+                <TableColumn fx:id="colUpdated" text="Last updated" prefWidth="170"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding>
+                <Insets top="8" right="20" bottom="8" left="20"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Select a resume, then use the buttons above."/>
+        </HBox>
+    </bottom>
+</BorderPane>

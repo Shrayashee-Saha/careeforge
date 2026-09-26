@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aizen.controller.CoverLetterController" styleClass="view-container">
+
+    <VBox spacing="12" styleClass="builder-form-pane" HBox.hgrow="ALWAYS" prefWidth="380">
+        <padding><Insets bottom="20" left="20" right="20" top="20"/></padding>
+        <Label styleClass="view-title" text="Cover Letter Generator"/>
+
+        <Label styleClass="field-label" text="Your Name"/>
+        <TextField fx:id="applicantNameField"/>
+
+        <Label styleClass="field-label" text="Target Job Role"/>
+        <TextField fx:id="jobRoleField"/>
+
+        <Label styleClass="field-label" text="Company Name"/>
+        <TextField fx:id="companyField"/>
+
+        <Label styleClass="field-label" text="Job Description"/>
+        <TextArea fx:id="jobDescriptionArea" prefRowCount="5" wrapText="true"/>
+
+        <Label styleClass="field-label" text="Your Background Summary"/>
+        <TextArea fx:id="applicantSummaryArea" prefRowCount="3" wrapText="true"/>
+
+        <Label styleClass="field-label" text="Tone"/>
+        <ComboBox fx:id="toneComboBox" maxWidth="Infinity"/>
+
+        <Button maxWidth="Infinity" onAction="#handleGenerate" styleClass="primary-button" text="✨ Generate Cover Letter"/>
+        <ProgressIndicator fx:id="progressIndicator" managed="false" prefHeight="24" prefWidth="24" visible="false"/>
+    </VBox>
+
+    <VBox spacing="8" styleClass="preview-pane" HBox.hgrow="ALWAYS">
+        <padding><Insets bottom="20" left="20" right="20" top="20"/></padding>
+        <HBox alignment="CENTER_LEFT">
+            <Label styleClass="section-heading" text="Generated Letter"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button onAction="#handleCopyToClipboard" styleClass="secondary-button" text="📋 Copy"/>
+            <Button onAction="#handleExportPdf" styleClass="secondary-button" text="📄 Export PDF"/>
+        </HBox>
+        <TextArea fx:id="letterArea" prefRowCount="30" wrapText="true" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</HBox>

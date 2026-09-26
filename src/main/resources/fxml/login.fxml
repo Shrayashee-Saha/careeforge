@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.aizen.controller.LoginController" styleClass="login-root">
+    <VBox alignment="CENTER" spacing="12" prefWidth="420" maxWidth="420" maxHeight="-Infinity" styleClass="card">
+        <padding>
+            <Insets top="34" right="34" bottom="30" left="34"/>
+        </padding>
+        <Label text="Careerforge" styleClass="brand-title"/>
+        <Label text="AI Resume &amp; Career Builder" styleClass="muted"/>
+        <Label fx:id="formTitle" text="Sign in" styleClass="form-title">
+            <VBox.margin>
+                <Insets top="10"/>
+            </VBox.margin>
+        </Label>
+
+        <VBox fx:id="registerFields" spacing="10">
+            <TextField fx:id="tfFullName" promptText="Full name"/>
+            <TextField fx:id="tfEmail" promptText="E-mail address"/>
+        </VBox>
+        <TextField fx:id="tfUsername" promptText="Username"/>
+        <PasswordField fx:id="pfPassword" promptText="Password" onAction="#onSubmit"/>
+        <PasswordField fx:id="pfConfirm" promptText="Confirm password" onAction="#onSubmit"/>
+
+        <Label fx:id="errorLabel" wrapText="true" styleClass="status-error" maxWidth="Infinity"/>
+
+        <HBox spacing="12" alignment="CENTER">
+            <Button fx:id="btnSubmit" text="Sign in" onAction="#onSubmit" styleClass="primary-button" defaultButton="true"
+                    prefWidth="200"/>
+            <ProgressIndicator fx:id="progress" prefWidth="26" prefHeight="26" visible="false"/>
+        </HBox>
+        <Hyperlink fx:id="switchLink" text="No account yet? Create one" onAction="#onSwitchMode"/>
+    </VBox>
+</StackPane>

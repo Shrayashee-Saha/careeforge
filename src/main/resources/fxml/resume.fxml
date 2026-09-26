@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.ResumeController">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+            <padding>
+                <Insets top="14" right="20" bottom="14" left="20"/>
+            </padding>
+            <Label text="Resume Builder" styleClass="page-title"/>
+            <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="New" onAction="#onClear" styleClass="secondary-button"/>
+            <Button text="Import JSON" onAction="#onImportJson" styleClass="secondary-button"/>
+            <Button text="Export JSON" onAction="#onExportJson" styleClass="secondary-button"/>
+            <Button text="Export PDF" onAction="#onExportPdf" styleClass="secondary-button"/>
+            <Button text="Save" onAction="#onSave" styleClass="primary-button"/>
+        </HBox>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.58">
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="edge-to-edge">
+                <VBox fx:id="formBox" spacing="14">
+                    <padding>
+                        <Insets top="18" right="20" bottom="24" left="20"/>
+                    </padding>
+                    <Label text="Personal details" styleClass="section-heading"/>
+                    <GridPane hgap="12" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50"/>
+                            <ColumnConstraints percentWidth="50"/>
+                        </columnConstraints>
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label text="Resume title *"/>
+                            <TextField fx:id="tfTitle" promptText="e.g. Software Engineer Resume"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label text="Template"/>
+                            <ChoiceBox fx:id="cbTemplate" maxWidth="Infinity"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label text="Full name *"/>
+                            <TextField fx:id="tfFullName"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label text="E-mail *"/>
+                            <TextField fx:id="tfEmail"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                            <Label text="Phone"/>
+                            <TextField fx:id="tfPhone" promptText="+880 1712 345678"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <Label text="Job title"/>
+                            <TextField fx:id="tfJobTitle" promptText="e.g. Java Developer"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                            <Label text="Location"/>
+                            <TextField fx:id="tfLocation" promptText="City, Country"/>
+                        </VBox>
+                        <VBox spacing="4" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <Label text="LinkedIn / website"/>
+                            <TextField fx:id="tfLinkedin"/>
+                        </VBox>
+                    </GridPane>
+
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Professional summary"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="btnAi" text="AI: generate summary" onAction="#onAiSummary" styleClass="secondary-button"/>
+                    </HBox>
+                    <TextArea fx:id="taSummary" prefRowCount="4" wrapText="true"
+                              promptText="Write a short summary or let AI draft one from your details below..."/>
+                </VBox>
+            </ScrollPane>
+            <VBox spacing="8" styleClass="preview-pane">
+                <padding>
+                    <Insets top="16" right="16" bottom="16" left="16"/>
+                </padding>
+                <Label text="Live preview" styleClass="section-heading"/>
+                <TextArea fx:id="previewArea" editable="false" wrapText="true" styleClass="preview-text" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </SplitPane>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding>
+                <Insets top="8" right="20" bottom="8" left="20"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Ready."/>
+        </HBox>
+    </bottom>
+</BorderPane>

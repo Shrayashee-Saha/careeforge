@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.aizen.controller.SettingsController" styleClass="view-container">
+    <padding><Insets bottom="24" left="24" right="24" top="24"/></padding>
+
+    <Label styleClass="view-title" text="Settings"/>
+
+    <VBox spacing="6" styleClass="settings-card">
+        <Label styleClass="section-heading" text="Appearance"/>
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label text="Dark Mode"/>
+            <ToggleButton fx:id="darkModeToggle" onAction="#handleToggleDarkMode" text="Off"/>
+        </HBox>
+    </VBox>
+
+    <Separator/>
+
+    <VBox spacing="6" styleClass="settings-card">
+        <Label styleClass="section-heading" text="AI Engine"/>
+        <Label fx:id="apiKeyStatusLabel" text="Checking AIZEN_API_KEY..." wrapText="true"/>
+        <Label styleClass="field-label" text="Set the AIZEN_API_KEY environment variable and restart AiZen to enable live Gemini API generation. Without it, AiZen automatically uses its built-in local fallback generator." wrapText="true"/>
+    </VBox>
+
+    <Separator/>
+
+    <VBox spacing="6" styleClass="settings-card">
+        <Label styleClass="section-heading" text="Account"/>
+        <Label fx:id="accountLabel" text=""/>
+        <Button onAction="#handleLogout" styleClass="danger-button" text="Log Out"/>
+    </VBox>
+</VBox>

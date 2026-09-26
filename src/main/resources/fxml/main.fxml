@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.MainController">
+    <left>
+        <VBox spacing="6" prefWidth="220" styleClass="sidebar">
+            <padding>
+                <Insets top="22" right="14" bottom="18" left="14"/>
+            </padding>
+            <Label text="CareerForge" styleClass="sidebar-brand"/>
+            <Label text="Resume &amp; Career Builder" styleClass="sidebar-sub">
+                <VBox.margin>
+                    <Insets bottom="18"/>
+                </VBox.margin>
+            </Label>
+            <Button fx:id="btnDashboard" text="Dashboard" onAction="#onDashboard" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnResume" text="Resume Builder" onAction="#onResume" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnCover" text="Cover Letter" onAction="#onCoverLetter" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button fx:id="btnSaved" text="Saved Resumes" onAction="#onSaved" styleClass="nav-button" maxWidth="Infinity"/>
+
+            <!-- ADD THIS LINE BELOW -->
+            <Button fx:id="btnInterview" text="AI Mock Interview" onAction="#onInterview" styleClass="nav-button" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label fx:id="lblUser" styleClass="sidebar-user" wrapText="true"/>
+            <Button fx:id="btnTheme" text="Dark mode" onAction="#onToggleTheme" styleClass="nav-button" maxWidth="Infinity"/>
+            <Button text="Log out" onAction="#onLogout" styleClass="nav-button" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+    <center>
+        <StackPane fx:id="contentPane" styleClass="content-area"/>
+    </center>
+</BorderPane>

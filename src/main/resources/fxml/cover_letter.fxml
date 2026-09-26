@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.aizen.controller.CoverLetterController">
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" styleClass="toolbar">
+            <padding>
+                <Insets top="14" right="20" bottom="14" left="20"/>
+            </padding>
+            <Label text="Cover Letter Generator" styleClass="page-title"/>
+            <ProgressIndicator fx:id="progress" prefWidth="24" prefHeight="24" visible="false"/>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+            <VBox spacing="10" prefWidth="380" minWidth="340" maxWidth="420" styleClass="card">
+                <padding>
+                    <Insets top="18" right="18" bottom="18" left="18"/>
+                </padding>
+                <Label text="Job details" styleClass="section-heading"/>
+                <Label text="Job role *"/>
+                <TextField fx:id="tfRole" promptText="e.g. Junior Java Developer"/>
+                <Label text="Target company *"/>
+                <TextField fx:id="tfCompany" promptText="e.g. Acme Technologies"/>
+                <Label text="Tone"/>
+                <ChoiceBox fx:id="cbTone" maxWidth="Infinity"/>
+                <Label text="Use details from a saved resume (optional)"/>
+                <HBox spacing="6">
+                    <ComboBox fx:id="cbResume" maxWidth="Infinity" HBox.hgrow="ALWAYS" promptText="None selected"/>
+                    <Button text="Clear" onAction="#onClearResume" styleClass="secondary-button"/>
+                </HBox>
+                <Label text="Anything else to mention? (optional)"/>
+                <TextArea fx:id="taNotes" prefRowCount="4" wrapText="true"
+                          promptText="Achievements, availability, why this company..."/>
+                <Button fx:id="btnGenerate" text="Generate cover letter" onAction="#onGenerate"
+                        styleClass="primary-button" maxWidth="Infinity"/>
+            </VBox>
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Generated letter" styleClass="section-heading"/>
+                <TextArea fx:id="taOutput" wrapText="true" VBox.vgrow="ALWAYS"
+                          promptText="Your cover letter will appear here - you can edit it before copying."/>
+                <HBox spacing="10">
+                    <Button text="Copy to clipboard" onAction="#onCopy" styleClass="secondary-button"/>
+                    <Button text="Clear" onAction="#onClearOutput" styleClass="secondary-button"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox styleClass="status-bar">
+            <padding>
+                <Insets top="8" right="20" bottom="8" left="20"/>
+            </padding>
+            <Label fx:id="statusLabel" text="Ready."/>
+        </HBox>
+    </bottom>
+</BorderPane>

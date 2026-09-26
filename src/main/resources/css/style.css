@@ -1,0 +1,348 @@
+/* ===================================================================
+   AiZen - light theme (base stylesheet, always loaded)
+   Custom colours use the -az- prefix so they never clash with Modena.
+   =================================================================== */
+.root {
+    -az-bg: #f3f5fb;
+    -az-surface: #ffffff;
+    -az-surface-alt: #f8f9fd;
+    -az-text: #1f2937;
+    -az-muted: #6b7280;
+    -az-border: #e2e6f0;
+    -az-accent: #4f46e5;
+    -az-accent-hover: #4338ca;
+    -az-accent-soft: #eef0ff;
+    -az-danger: #dc2626;
+    -az-success: #059669;
+
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -az-bg;
+}
+
+.label {
+    -fx-text-fill: -az-text;
+}
+
+.muted {
+    -fx-text-fill: -az-muted;
+}
+
+/* ---------------- Login ---------------- */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #4f46e5, #7c3aed);
+}
+
+.card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 14;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.18), 22, 0, 0, 6);
+}
+
+.brand-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-accent;
+}
+
+.form-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ---------------- Sidebar ---------------- */
+.sidebar {
+    -fx-background-color: #111827;
+}
+
+.sidebar-brand {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.sidebar-sub {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+.sidebar-user {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+    -fx-padding: 0 0 8 4;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cbd5e1;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 13.5px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #1f2937;
+    -fx-text-fill: white;
+}
+
+.nav-active,
+.nav-active:hover {
+    -fx-background-color: -az-accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.content-area {
+    -fx-background-color: -az-bg;
+}
+
+/* ---------------- Dashboard ---------------- */
+.welcome-banner {
+    -fx-background-color: linear-gradient(to right, #4f46e5, #7c3aed);
+    -fx-background-radius: 14;
+}
+
+.banner-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.banner-sub {
+    -fx-font-size: 14px;
+    -fx-text-fill: #e0e7ff;
+}
+
+.stat-card {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 12;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(15, 23, 42, 0.08), 10, 0, 0, 2);
+}
+
+.stat-value {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -az-accent;
+}
+
+.stat-label {
+    -fx-text-fill: -az-muted;
+}
+
+.section-heading {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.page-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* ---------------- Toolbars / status ---------------- */
+.toolbar {
+    -fx-background-color: -az-surface;
+    -fx-border-color: transparent transparent -az-border transparent;
+}
+
+.status-bar {
+    -fx-background-color: -az-surface;
+    -fx-border-color: -az-border transparent transparent transparent;
+}
+
+.status-ok {
+    -fx-text-fill: -az-success;
+}
+
+.status-error {
+    -fx-text-fill: -az-danger;
+}
+
+/* ---------------- Buttons ---------------- */
+.primary-button {
+    -fx-background-color: -az-accent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 9 20;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: -az-accent-hover;
+}
+
+.secondary-button {
+    -fx-background-color: -az-accent-soft;
+    -fx-text-fill: -az-accent;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: derive(-az-accent-soft, -6%);
+}
+
+.danger-button {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: -az-danger;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: #fecaca;
+}
+
+.danger-button-small {
+    -fx-background-color: transparent;
+    -fx-text-fill: -az-danger;
+    -fx-cursor: hand;
+    -fx-padding: 4 8;
+}
+
+.danger-button-small:hover {
+    -fx-background-color: #fee2e2;
+    -fx-background-radius: 6;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.danger-button:disabled {
+    -fx-opacity: 0.55;
+}
+
+/* ---------------- Inputs ---------------- */
+.text-field,
+.password-field,
+.text-area,
+.combo-box-base,
+.choice-box {
+    -fx-background-color: -az-surface;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: -az-text;
+}
+
+.text-field,
+.password-field {
+    -fx-padding: 8 10;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: -az-accent;
+}
+
+.text-area .content {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 8;
+}
+
+.text-area {
+    -fx-text-fill: -az-text;
+    -fx-control-inner-background: -az-surface;
+}
+
+.text-field,
+.password-field {
+    -fx-control-inner-background: -az-surface;
+}
+
+.preview-text {
+    -fx-font-family: "Consolas", "Menlo", "DejaVu Sans Mono", monospace;
+    -fx-font-size: 12.5px;
+}
+
+.preview-pane {
+    -fx-background-color: -az-surface-alt;
+}
+
+/* ---------------- Form sections ---------------- */
+.section-box {
+    -fx-background-color: -az-surface-alt;
+    -fx-background-radius: 10;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 10;
+}
+
+.section-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.row-box {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 8;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 8;
+}
+
+/* ---------------- Containers ---------------- */
+.scroll-pane,
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane.edge-to-edge {
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.split-pane {
+    -fx-background-color: transparent;
+}
+
+.table-view {
+    -fx-background-color: -az-surface;
+    -fx-background-radius: 10;
+    -fx-border-color: -az-border;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -az-surface-alt;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: -az-surface;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -az-surface-alt;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -az-accent-soft;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -az-text;
+}
+
+.table-cell {
+    -fx-text-fill: -az-text;
+    -fx-padding: 8 6;
+}
+
+.hyperlink {
+    -fx-text-fill: -az-accent;
+}
